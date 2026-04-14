@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tutti-ai"
+version = "0.0.1"
+description = "The most secure Python agent framework"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Tutti AI", email = "eng@tutti.ai" }]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.0"]
+all = ["tutti-ai[anthropic]", "tutti-ai[openai]"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "hatchling>=1.25",
+    "build>=1.2",
+    "twine>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tuttiai/tutti-python"
+TypeScript = "https://github.com/tuttiai/tutti"
+Voices = "https://github.com/tuttiai/voices"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tutti"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.mypy]
+strict = true
+python_version = "3.9"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
