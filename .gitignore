@@ -7,3 +7,6 @@ __pycache__/
 .env
 .pytest_cache/
 .ruff_cache/
+
+# Local agent working state — synced from tuttiai/knowledge
+CLAUDE.local.md
